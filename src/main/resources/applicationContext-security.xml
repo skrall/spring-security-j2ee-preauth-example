@@ -1,14 +1,14 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/security
+             http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-    <http create-session="never" auto-config="false" use-expressions="true" entry-point-ref="preAuthenticatedProcessingFilterEntryPoint">
-        <intercept-url pattern="/j_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/login/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/app/admin/**" access="hasRole('callcenteradmin')"/>
-        <intercept-url pattern="/**" access="hasRole('callcenter')"/>
+    <http create-session="never" use-expressions="true" auto-config="false" entry-point-ref="preAuthenticatedProcessingFilterEntryPoint">
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <custom-filter position="PRE_AUTH_FILTER" ref="preAuthFilter"/>
         <session-management session-fixation-protection="none"/>
     </http>

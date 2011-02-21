@@ -37,4 +37,30 @@
 
     <display-name>Spring Security J2EE PreAuth Example</display-name>
     <description>Spring Security J2EE PreAuth Example.</description>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All Content</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ROLE_USER</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>DEFAULT</realm-name>
+        <form-login-config>
+            <form-login-page>/login/login.jsp</form-login-page>
+            <form-error-page>/login/autherror.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <security-role>
+        <role-name>ROLE_USER</role-name>
+    </security-role>
+    <security-role>
+        <role-name>ROLE_ADMIN</role-name>
+    </security-role>
 </web-app>
