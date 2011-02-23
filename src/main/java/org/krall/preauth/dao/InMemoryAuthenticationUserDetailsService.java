@@ -11,6 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Spring Security will use this class to populate the UserDetails.  Normally this would read the same source
+ * that the containers Realm is using, a database for instance.  But for the example, just hard code some users.
+ */
 public class InMemoryAuthenticationUserDetailsService implements AuthenticationUserDetailsService {
 
     @Override

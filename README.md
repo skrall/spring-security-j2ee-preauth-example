@@ -4,7 +4,13 @@ The [pre-authentication sample](http://static.springsource.org/spring-security/s
 
 I also discovered an issue with [Tomcat](http://tomcat.apache.org) and spring-security's session fixation protection.  I had to disable spring-security's session fixation protection in order to get the authentication working as expected.
 
-### Setup
+### Jetty
+
+    mvn jetty:run
+
+Point your web browser to http://localhost:8080/spring-security-j2ee-preauth-example - log in as either jimi or fred.
+
+### Tomcat
 
 Edit $CATALINA_HOME/conf/tomcat-users.xml add the following:
 
@@ -17,4 +23,4 @@ Deploy the war file:
 
   cp target/spring-security-j2ee-preauth-example-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/preauth.war
 
-Point your web browser to http://localhost:8080/preauth - log in as either jimi or fred..
+Point your web browser to http://localhost:8080/preauth - log in as either jimi or fred.

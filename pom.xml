@@ -19,6 +19,18 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <configuration>
+                    <userRealms>
+                        <userRealm implementation="org.mortbay.jetty.security.HashUserRealm">
+                            <name>DEFAULT</name>
+                            <config>etc/realm.properties</config>
+                        </userRealm>
+                    </userRealms>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
